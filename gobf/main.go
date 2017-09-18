@@ -11,6 +11,8 @@ import (
 	"github.com/nelhage/gojit/bf"
 )
 
+const memorySize = 32768
+
 func main() {
 	var (
 		buffer = flag.Bool("buffer", false, "buffer stdout")
@@ -34,6 +36,6 @@ func main() {
 	if e != nil {
 		log.Fatalf("compiling: %s", e.Error())
 	}
-	var memory [4096]byte
+	var memory [memorySize]byte
 	f(memory[:])
 }
